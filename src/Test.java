@@ -12,9 +12,11 @@ public class Test
         String PassWord = sr.next();
         System.out.println(PassWord);
 
-        User srUser = new User();
-        File file = new File("C:\\Users\\lenovo\\IdeaProjects\\cmdShop\\src");
-        srUser = ReadExcel(file);
+        User []srUser = null;
+        File file = new File("C:\\Users\\123\\IdeaProjects\\cmdShop\\src\\user.xlsx");
+        ReadExcel re = new ReadExcel();
+        srUser = re.readExcel(file);
+        System.out.println(srUser[0].getUsername());
 
 
     }
