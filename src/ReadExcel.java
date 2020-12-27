@@ -4,21 +4,19 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class ReadExcel {
     /*
     readExcel是什么方法？成员方法
      */
-    public User[] readExcel(File file) {
+    public User[] readExcel(InputStream in) {
         User users[] = null;
         try {
-            XSSFWorkbook xw = new XSSFWorkbook(new FileInputStream(file));
+            XSSFWorkbook xw = new XSSFWorkbook(in);
             XSSFSheet xs = xw.getSheetAt(0);
-            users = new User[xs.getLastRowNum()];
-            for (int j = 1; j <= xs.getLastRowNum(); j++) {
+            users = new User[xs.getPhysicalNumberOfRows()];
+            for (int j = 0; j < xs.getPhysicalNumberOfRows(); j++) {
                 XSSFRow row = xs.getRow(j);
                 User user = new User();
                 for (int k = 0; k <= row.getLastCellNum(); k++) {
@@ -34,8 +32,8 @@ public class ReadExcel {
                     } else if (k == 3) {
                         user.setPhone(this.getValue(cell));
                     }
-                    users[j-1]=user;
                 }
+                users[j]=user;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,7 +56,9 @@ public class ReadExcel {
                 value = cell.getBooleanCellValue() + "";
                 break;
             case NUMERIC:
+
                 value = cell.getNumericCellValue() + "";
+
                 break;
             case FORMULA:
                 value = cell.getCellFormula();
