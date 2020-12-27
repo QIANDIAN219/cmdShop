@@ -17,7 +17,6 @@ public class Test
         ReadExcel re = new ReadExcel();
         srUser = re.readExcel(in);
         boolean flag = false;
-        System.out.println(srUser.length);
         for(int i = 0; i<srUser.length; i++)
         {
             System.out.println(srUser[i].getUsername());
