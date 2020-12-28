@@ -6,46 +6,55 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
 
-public class ReadUserExcel {
-    /*
-    readExcel是什么方法？成员方法
-     */
-    public User[] readExcel(InputStream in) {
+public class ReadUserExcel
+{
+    public User[] readExcel(InputStream in)
+    {
         User users[] = null;
-        try {
+        try
+        {
             XSSFWorkbook xw = new XSSFWorkbook(in);
             XSSFSheet xs = xw.getSheetAt(0);
             users = new User[xs.getPhysicalNumberOfRows()];
-            for (int j = 0; j < xs.getPhysicalNumberOfRows(); j++) {
+            for (int j = 0; j < xs.getPhysicalNumberOfRows(); j++)
+            {
                 XSSFRow row = xs.getRow(j);
                 User user = new User();
-                for (int k = 0; k <= row.getLastCellNum(); k++) {
+                for (int k = 0; k <= row.getLastCellNum(); k++)
+                {
                     XSSFCell cell = row.getCell(k);
                     if (cell == null)
                         continue;
-                    if (k == 0) {
+                    if (k == 0)
+                    {
                         user.setUsername(this.getValue(cell));
-                    } else if (k == 1) {
+                    }
+                    else if (k == 1)
+                    {
                         user.setPassword(this.getValue(cell));
-                    } else if (k == 2) {
+                    } else if (k == 2)
+                    {
                         user.setAddress(this.getValue(cell));
-                    } else if (k == 3) {
+                    } else if (k == 3)
+                    {
                         user.setPhone(this.getValue(cell));
                     }
                 }
                 users[j]=user;
             }
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
         return users;
     }
-
-    private String getValue(XSSFCell cell) {
+    private String getValue(XSSFCell cell)
+    {
         String value;
         CellType type = cell.getCellTypeEnum();
 
-        switch (type) {
+        switch (type)
+        {
             case STRING:
                 value = cell.getStringCellValue();
                 break;
@@ -56,9 +65,7 @@ public class ReadUserExcel {
                 value = cell.getBooleanCellValue() + "";
                 break;
             case NUMERIC:
-
                 value = cell.getNumericCellValue() + "";
-
                 break;
             case FORMULA:
                 value = cell.getCellFormula();

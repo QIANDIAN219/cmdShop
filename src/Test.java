@@ -27,8 +27,6 @@ public class Test
                 if(srUser[i].getUsername().equals(UserName) && srUser[i].getPassword().equals(PassWord))
                 {
                     System.out.println("登录成功");
-                    System.out.println(srUser[i].getAddress());
-                    System.out.println(srUser[i].getPhone());
                     flag = false;
                     break;
                 }
@@ -38,5 +36,23 @@ public class Test
                 System.out.println("账号或密码错误");
             }
         }
+        if(!flag)
+        {
+            System.out.println("商品信息");
+            for(int i = 0; i<srProduct.length; i++)
+            {
+                System.out.println(srProduct[i].getProductID()+"-"+srProduct[i].getProductName()+"-"+srProduct[i].getProductPrice());
+            }
+        }
+        /*System.out.println("输入您要查看的商品：(输入0退出)");
+        while(true)
+        {
+            Scanner sr = new Scanner(System.in);
+            String number = sr.next();
+            int i = Integer.parseInt(number);
+            if(i == 0) break;
+            System.out.println(srProduct[i-1].getProductID()+"-"+srProduct[i-1].getProductName()+"-"+srProduct[i-1].getProductPrice());
+        }*/
+
     }
 }
