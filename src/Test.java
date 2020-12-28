@@ -9,11 +9,13 @@ public class Test
         Product []srProduct = null;
         //File file = new File("C:\\Users\\123\\IdeaProjects\\cmdShop\\src\\user.xlsx");
         InputStream khin = Class.forName("Test").getResourceAsStream("/user.xlsx");
-        InputStream spin = Class.forName("Test").getResourceAsStream("/product.xlsx");
+        InputStream spin0 = Class.forName("Test").getResourceAsStream("/product.xlsx");
+        InputStream spin1 = Class.forName("Test").getResourceAsStream("/product.xlsx");
         ReadUserExcel kh = new ReadUserExcel();
         ReadProductExcel sp = new ReadProductExcel();
         srUser = kh.readExcel(khin);
-        srProduct = sp.readExcel(spin);
+        srProduct = sp.readExcel(spin0);
+
         boolean flag = true;
         while (flag)
         {
@@ -44,13 +46,28 @@ public class Test
                 System.out.println(srProduct[i].getProductID()+"-"+srProduct[i].getProductName()+"-"+srProduct[i].getProductPrice());
             }
         }
+        Product []carts = new Product[5];
+
+        int k = 0;
+        System.out.println("输入您要添加的商品：(输入0退出)");
+        while(!flag)
+        {
+            Scanner sr = new Scanner(System.in);
+            String number = sr.next();
+            int i = Integer.parseInt(number);
+            if(i == 0) break;
+            carts[k] = srProduct[i-1];
+            k = k+1;
+
+        }
+
         /*System.out.println("输入您要查看的商品：(输入0退出)");
         while(true)
         {
             Scanner sr = new Scanner(System.in);
             String number = sr.next();
             int i = Integer.parseInt(number);
-            if(i == 0) break;
+
             System.out.println(srProduct[i-1].getProductID()+"-"+srProduct[i-1].getProductName()+"-"+srProduct[i-1].getProductPrice());
         }*/
 

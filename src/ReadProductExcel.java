@@ -37,7 +37,36 @@ public class ReadProductExcel
         }
         return products;
     }
-
+    public Product getProductByID(InputStream in1,String id)
+    {
+        Product product = null;
+        try {
+            boolean flag = true;
+            XSSFWorkbook xw = new XSSFWorkbook(in1);
+            XSSFSheet xs = xw.getSheetAt(0);
+            product = new Product();
+            for (int j = 0; j < xs.getPhysicalNumberOfRows(); j++) {
+                XSSFRow row = xs.getRow(j);
+                XSSFCell cell = row.getCell(0);
+                if(id.equals(this.getValue(cell)))
+                {
+                    product.setProductID(this.getValue(cell));
+                    row.getCell(1);
+                    product.setProductName(this.getValue(cell));
+                    row.getCell(2);
+                    product.setProductPrice(this.getValue(cell));
+                    flag = false;
+                }
+            }
+            if(flag)
+            {
+                System.out.println("没有ID为" + id + "的商品");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
     private String getValue(XSSFCell cell) {
         String value;
         CellType type = cell.getCellTypeEnum();
@@ -53,9 +82,7 @@ public class ReadProductExcel
                 value = cell.getBooleanCellValue() + "";
                 break;
             case NUMERIC:
-
                 value = cell.getNumericCellValue() + "";
-
                 break;
             case FORMULA:
                 value = cell.getCellFormula();
