@@ -19,16 +19,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e44b7aae-b360-44b2-874b-d2d64337bb49" name="Default Changelist" comment="显示商品信息">
+    <list default="true" id="e44b7aae-b360-44b2-874b-d2d64337bb49" name="Default Changelist" comment="通过商品ID获取商品">
+      <change afterPath="$PROJECT_DIR$/src/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ReadProductExcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadProductExcel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/product.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/product.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,10 +56,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="ics" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
   </component>
   <component name="RunManager">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -81,7 +88,11 @@
       <workItem from="1608997570704" duration="1353000" />
       <workItem from="1609030897573" duration="7862000" />
       <workItem from="1609046270470" duration="183000" />
-      <workItem from="1609153034064" duration="7381000" />
+      <workItem from="1609153034064" duration="8359000" />
+      <workItem from="1609326983059" duration="6822000" />
+      <workItem from="1609679113120" duration="1661000" />
+      <workItem from="1609758095731" duration="7742000" />
+      <workItem from="1611401600804" duration="2374000" />
     </task>
     <task id="LOCAL-00001" summary="读取Excel内容">
       <created>1608998844564</created>
@@ -104,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609155893579</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="通过商品ID获取商品">
+      <created>1609160519202</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609160519202</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,40 +145,41 @@
     <MESSAGE value="读取Excel内容" />
     <MESSAGE value="用循环改造账号密码错误时重复输入" />
     <MESSAGE value="显示商品信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="显示商品信息" />
+    <MESSAGE value="通过商品ID获取商品" />
+    <option name="LAST_COMMIT_MESSAGE" value="通过商品ID获取商品" />
   </component>
   <component name="WindowStateProjectService">
     <state x="761" y="344" key="FileChooserDialogImpl" timestamp="1608998663104">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="761" y="344" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608998663104" />
-    <state width="1877" height="239" key="GridCell.Tab.0.bottom" timestamp="1609160368437">
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom" timestamp="1611407098350">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="239" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609160368437" />
-    <state width="1877" height="239" key="GridCell.Tab.0.center" timestamp="1609160368437">
+    <state width="1877" height="191" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611407098350" />
+    <state width="1877" height="191" key="GridCell.Tab.0.center" timestamp="1611407098349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="239" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609160368437" />
-    <state width="1877" height="239" key="GridCell.Tab.0.left" timestamp="1609160368437">
+    <state width="1877" height="191" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611407098349" />
+    <state width="1877" height="191" key="GridCell.Tab.0.left" timestamp="1611407098349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="239" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609160368437" />
-    <state width="1877" height="239" key="GridCell.Tab.0.right" timestamp="1609160368437">
+    <state width="1877" height="191" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611407098349" />
+    <state width="1877" height="191" key="GridCell.Tab.0.right" timestamp="1611407098349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="239" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609160368437" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1608998768335">
+    <state width="1877" height="191" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611407098349" />
+    <state x="840" y="140" key="SettingsEditor" timestamp="1611407196365">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1608998768335" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609155910182">
+    <state x="840" y="140" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1611407196365" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609161935093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609155910182" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608997962043">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609161935093" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609332783193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608997962043" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609332783193" />
   </component>
 </project>

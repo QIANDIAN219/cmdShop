@@ -6,6 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 
 public class ReadProductExcel
 {
@@ -41,21 +42,24 @@ public class ReadProductExcel
     {
         Product product = null;
         try {
+            product = new Product();
             boolean flag = true;
             XSSFWorkbook xw = new XSSFWorkbook(in1);
             XSSFSheet xs = xw.getSheetAt(0);
-            product = new Product();
-            for (int j = 0; j < xs.getPhysicalNumberOfRows(); j++) {
+            for (int j = 0; j < xs.getPhysicalNumberOfRows(); j++)
+            {
+
                 XSSFRow row = xs.getRow(j);
                 XSSFCell cell = row.getCell(0);
                 if(id.equals(this.getValue(cell)))
                 {
                     product.setProductID(this.getValue(cell));
-                    row.getCell(1);
-                    product.setProductName(this.getValue(cell));
-                    row.getCell(2);
-                    product.setProductPrice(this.getValue(cell));
+                    XSSFCell cell1 = row.getCell(1);
+                    product.setProductName(this.getValue(cell1));
+                    XSSFCell cell2 = row.getCell(2);
+                    product.setProductPrice(this.getValue(cell2));
                     flag = false;
+                    return product;
                 }
             }
             if(flag)
@@ -65,7 +69,7 @@ public class ReadProductExcel
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return product;
+        return null;
     }
     private String getValue(XSSFCell cell) {
         String value;
@@ -82,7 +86,10 @@ public class ReadProductExcel
                 value = cell.getBooleanCellValue() + "";
                 break;
             case NUMERIC:
-                value = cell.getNumericCellValue() + "";
+                DecimalFormat df = new DecimalFormat("#");
+                value = df.format(cell.getNumericCellValue());
+                //value = df.format(cell.getNumericCellValue());
+                //value = cell.getNumericCellValue() + "";
                 break;
             case FORMULA:
                 value = cell.getCellFormula();
